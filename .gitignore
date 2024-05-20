@@ -1,0 +1,10 @@
+*.gem
+.bundle
+.rubocop-*
+.yardoc
+coverage/
+Gemfile.lock
+doc/
+pkg
+spec/examples.txt
+tmp
