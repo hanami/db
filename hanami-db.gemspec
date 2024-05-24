@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require_relative "lib/hanami/db/version"
+
 Gem::Specification.new do |spec|
   spec.name = "hanami-db"
-  spec.version = "0.0.0"
+  spec.version = Hanami::DB::VERSION
   spec.authors = ["Hanami team"]
   spec.email = ["admin@hanamirb.org"]
   spec.summary = "The database layer for Hanami apps"
