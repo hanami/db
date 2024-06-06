@@ -11,6 +11,8 @@ group :development do
   gem "rubocop"
 end
 
+gem "sqlite3"
+
 group :docs do
   gem "redcarpet", platforms: :mri
   gem "yard"
