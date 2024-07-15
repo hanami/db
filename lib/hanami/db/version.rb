@@ -2,6 +2,6 @@
 
 module Hanami
   module DB
-    VERSION = "0.0.0"
+    VERSION = "2.2.0.beta1"
   end
 end
