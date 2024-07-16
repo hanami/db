@@ -12,6 +12,7 @@ group :development do
 end
 
 gem "sqlite3"
+gem 'byebug'
 
 group :docs do
   gem "redcarpet", platforms: :mri
