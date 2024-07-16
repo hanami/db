@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'byebug'
-
 RSpec.describe Hanami::DB::Struct do
   let!(:config) do
     ROM::Configuration.new(:sql, 'sqlite::memory') do |conf|
@@ -44,8 +42,7 @@ RSpec.describe Hanami::DB::Struct do
       repo = Test::UserRepo.new(rom)
       struct = repo.users.by_pk(1).one!
       expect(struct.full_name).to eq "L L"
-      byebug
-      expect(struct.to_json).to eq "{\"first_name\":\"L\",\"last_name\":\"L\"}"
+      expect(struct.to_json).to eq "{\"id\":1,\"first_name\":\"L\",\"last_name\":\"L\"}"
     end
   end
 end
