@@ -45,7 +45,7 @@ module Hanami
 
       private
 
-      def set_relation?(name) # rubocop:disable Naming/AccessorMethodName
+      def set_relation?(name)
         name && container.relations.key?(name)
       end
     end
