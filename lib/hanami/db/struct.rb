@@ -10,8 +10,8 @@ module Hanami
       #
       # Simple conversion of attributes to JSON format, without this method, the instance of the struct gets converted
       # to a string
-      def to_json(*_args)
-        to_h.to_json
+      def to_json(*args)
+        to_h.to_json(*args)
       end
     end
   end
