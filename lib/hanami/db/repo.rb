@@ -40,7 +40,7 @@ module Hanami
         # means _every_ repo ends up with an inferred root, many of which will not exist as
         # relations. To avoid errors from fetching these non-existent relations, check first before
         # setting the root.
-        @root = set_relation(self.class.root) if set_relation?(self.class.root)
+        @root = prepare_relation(self.class.root) if set_relation?(self.class.root)
       end
 
       private
