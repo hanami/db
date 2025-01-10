@@ -21,8 +21,8 @@ Gem::Specification.new do |spec|
   }
 
   spec.required_ruby_version = ">= 3.1"
-  spec.add_dependency "rom", "~> 5.3"
-  spec.add_dependency "rom-sql", "~> 3.6", ">= 3.6.4"
+  spec.add_dependency "rom", "~> 5.4", ">= 5.4.1"
+  spec.add_dependency "rom-sql", "~> 3.7"
   spec.add_dependency "zeitwerk", "~> 2.6"
 
   spec.extra_rdoc_files = Dir["README*", "LICENSE*"]
