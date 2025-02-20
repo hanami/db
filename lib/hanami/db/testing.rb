@@ -21,7 +21,9 @@ module Hanami
         # @api private
         # @since 2.2.0
         def database_url(url)
-          url = parse_url(url)
+          # URI#dup does not duplicate internal instance
+          # variables, making mutation dangerous.
+          url = URI(url.to_s)
 
           case deconstruct_url(url)
           in { scheme: "sqlite", opaque: nil, path: } unless path.nil?
@@ -34,73 +36,10 @@ module Hanami
             # do nothing
           end
 
-          stringify_url(url)
+          url.to_s
         end
 
         private
-
-        # @api private
-        # @since 2.2.0
-        def parse_url(url)
-          if url.is_a?(URI::Generic)
-            # URI#dup does not duplicate internal instance
-            # variables, making mutation dangerous.
-            URI(stringify_url(url))
-          else
-            URI(url.to_s)
-          end
-        end
-
-        # rubocop:disable Metrics/AbcSize, Metrics/PerceivedComplexity
-
-        # Work around a bug in Ruby 3.0.x that erroneously omits
-        # the '//' prefix from hierarchical URLs.
-        #
-        # @api private
-        # @since 2.2.0
-        def stringify_url(url)
-          if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("3.1.0")
-            return url.to_s
-          end
-
-          require "stringio"
-
-          buf = StringIO.new
-          buf << url.scheme
-          buf << ":"
-          buf << (url.opaque || "//")
-
-          if url.user || url.password
-            buf << "#{url.user}:#{url.password}@"
-          end
-
-          if url.host
-            buf << url.host
-          end
-
-          if url.port
-            buf << ":"
-            buf << url.port
-          end
-
-          if url.path
-            buf << url.path
-          end
-
-          if url.query
-            buf << "?"
-            buf << url.query
-          end
-
-          if url.fragment
-            buf << "#"
-            buf << url.fragment
-          end
-
-          buf.string
-        end
-
-        # rubocop:enable Metrics/AbcSize, Metrics/PerceivedComplexity
 
         # Deconstructs a URI::Generic for pattern-matching.
         #
