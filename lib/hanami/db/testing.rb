@@ -26,11 +26,11 @@ module Hanami
           url = URI(url.to_s)
 
           case deconstruct_url(url)
-          in { scheme: "sqlite", opaque: nil, path: } unless path.nil?
+          in {scheme: "sqlite", opaque: nil, path:} unless path.nil?
             url.path = database_filename(path)
-          in { path: String => path } if path =~ DATABASE_NAME_MATCHER
+          in {path: String => path} if path =~ DATABASE_NAME_MATCHER
             url.path = path.sub(DATABASE_NAME_MATCHER, DATABASE_NAME_SUFFIX)
-          in { path: String => path } unless path.end_with?(DATABASE_NAME_SUFFIX)
+          in {path: String => path} unless path.end_with?(DATABASE_NAME_SUFFIX)
             url.path << DATABASE_NAME_SUFFIX
           else
             # do nothing
