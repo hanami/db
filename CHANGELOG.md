@@ -16,6 +16,8 @@ The database layer for Hanami apps.
 
 ### Security
 
+## [2.3.0.beta1] - Unreleased
+
 ## [2.2.1] - 2025-01-10
 
 ### Fixed
@@ -42,7 +44,8 @@ The database layer for Hanami apps.
 
 - Initial release.
 
-[unreleased]: https://github.com/hanami/db/compare/v2.2.0...main
+[unreleased]: https://github.com/hanami/db/compare/v2.3.0.beta1...main
+[2.3.0.beta1]: https://github.com/hanami/db/compare/v2.2.1...v2.3.0.beta1
 [2.2.1]: https://github.com/hanami/db/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/hanami/db/compare/v2.2.0.rc1...v2.2.0
 [2.2.0.rc1]: https://github.com/hanami/db/compare/v2.2.0.beta2...v2.2.0.rc1
