@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
     "rubygems_mfa_required" => "true"
   }
 
-  spec.required_ruby_version = ">= 3.1"
+  spec.required_ruby_version = ">= 3.2"
   spec.add_dependency "rom", "~> 5.4", ">= 5.4.1"
   spec.add_dependency "rom-sql", "~> 3.7"
   spec.add_dependency "zeitwerk", "~> 2.6"
